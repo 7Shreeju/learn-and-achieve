@@ -1,0 +1,52 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.button {
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  background: v.$primary;
+  border-radius: 10px;
+  padding: 14px 20px;
+  color: v.$light;
+  position: relative;
+  font-weight: 600;
+  text-align: center;
+}
+
+.svg-button {
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  background: v.$primary;
+  border-radius: 7px;
+  padding-left: 14px;
+  display: flex;
+  align-items: center;
+  color: v.$light;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  height: 40px;
+  text-align: center;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    background: v.$secondary;
+    height: 100%;
+    padding: 0 16px;
+    margin-left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.back {
+  @include m.d-flex(center, start, nowrap, 7px);
+  border: 0;
+  color: v.$primary;
+  font-size: 14px;
+  font-weight: 500;
+}

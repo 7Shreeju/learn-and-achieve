@@ -1,0 +1,90 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.dashboard {
+  height: 100%;
+  display: flex;
+  position: relative;
+
+  .db-body {
+    width: calc(100% - 250px);
+    background: #f3f5f6;
+  }
+
+  .db-head {
+    @include m.d-flex(center, space-between, nowrap, 0);
+    padding: 25px 0;
+
+    h4 {
+      color: #0e0e0e;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .breadcrumb {
+      li {
+        color: #14489f;
+        font-size: 12px;
+        font-weight: 500;
+
+        a {
+          color: #000;
+
+          &:hover {
+            color: #14489f;
+          }
+        }
+
+        &::after {
+          content: ">";
+          margin-left: 4px;
+          font-size: 15px;
+          position: relative;
+          top: 1px;
+        }
+        &:last-child::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: none;
+}
+
+// Class Master
+.class-list {
+  .card {
+    padding: 20px;
+    border: 0;
+    .head {
+      @include m.d-flex(center, space-between, nowrap, 0);
+      margin-bottom: 20px;
+      h4 {
+        color: #0e0e0e;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.date-pick{
+  position: relative;
+  .react-datepicker-wrapper{
+    width: 100%;
+   
+  }
+  svg{
+    position: absolute;
+    top: 25px;
+    right: 10px;
+ 
+}
+
+}

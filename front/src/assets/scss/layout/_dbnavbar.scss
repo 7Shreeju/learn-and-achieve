@@ -1,0 +1,68 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.db-nav {
+  background: v.$light;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  .nav-content {
+    height: 70px;
+    @include m.d-flex(center, space-between, nowrap, 0);
+
+    h3 {
+      color: #0e0e0e;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .search-not {
+      @include m.d-flex(center, end, nowrap, 18px);
+
+      .search {
+        width: 300px;
+        position: relative;
+
+        input {
+          width: 100%;
+          border-radius: 8px;
+          padding: 7px 14px;
+          background: #f3f5f6;
+          border: 0;
+          font-size: 14px;
+
+          &::-webkit-search-decoration,
+          &::-webkit-search-cancel-button,
+          &::-webkit-search-results-button,
+          &::-webkit-search-results-decoration {
+            display: none;
+          }
+        }
+
+        button {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          border: 0;
+          background: none;
+        }
+      }
+
+      .user {
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+
+        .img {
+          height: 100%;
+          border-radius: 50%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+}

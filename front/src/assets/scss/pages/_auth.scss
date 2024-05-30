@@ -1,0 +1,102 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+// Login
+.login {
+  min-height: 100vh;
+  @include m.d-flex(center, center, nowrap, 0);
+
+  .image-side {
+    height: 100%;
+    background: linear-gradient(233.45deg, #14489f 2.94%, #007bc3 93.25%);
+    @include m.d-flex(center, center, nowrap, 0);
+    flex-direction: column;
+    padding: 50px;
+
+    .image {
+      margin-bottom: 30px;
+      text-align: center;
+
+      img {
+        width: 80%;
+      }
+    }
+
+    .text {
+      text-align: center;
+      h4 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: v.$light;
+      }
+    }
+  }
+
+  .text-side {
+    @include m.d-flex(center, center, nowrap, 0);
+    flex-direction: column;
+    padding: 60px;
+    background: #f8f8f8;
+    height: 100%;
+
+    .logo {
+      margin-bottom: 40px;
+
+      img {
+        width: 140px;
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: v.$dark;
+    }
+
+    p {
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .form {
+      .for {
+        a {
+          color: #14489f;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+
+      .eye {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .otp-inputs {
+    > div {
+      gap: 10px;
+    }
+    input {
+      background: v.$light;
+      width: 50px !important;
+      height: 50px;
+      padding: 10px;
+      @include m.d-flex(center, center, nowrap, 0);
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      &:focus {
+        border: 1px solid v.$primary;
+      }
+    }
+  }
+}

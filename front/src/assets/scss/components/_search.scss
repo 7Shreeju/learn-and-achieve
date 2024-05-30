@@ -1,0 +1,28 @@
+.search {
+    width: 300px;
+    position: relative;
+
+    input {
+      width: 100%;
+      border-radius: 8px;
+      padding: 7px 14px;
+      background: #f3f5f6;
+      border: 0;
+
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 0;
+      background: none;
+    }
+  }

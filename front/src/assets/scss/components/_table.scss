@@ -1,0 +1,200 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.data-tables {
+  .delete-button {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #ff6c6c;
+    border: 0;
+  }
+  .dt-search {
+    label {
+      display: none;
+    }
+    input {
+      width: 300px;
+      border-radius: 8px !important;
+      padding: 7px 14px !important;
+      padding-right: 30px !important;
+      background-color: #f3f5f6 !important;
+      border: 0 !important;
+      font-size: 14px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M13.428 12.4867L11.2659 10.3246C11.9212 9.4668 12.2805 8.42635 12.2807 7.32845C12.2807 6.00537 11.7654 4.76139 10.8297 3.82585C9.89412 2.8903 8.65031 2.375 7.32707 2.375C6.00399 2.375 4.76001 2.8903 3.82446 3.82585C1.89315 5.75732 1.89315 8.8999 3.82446 10.8311C4.76001 11.7668 6.00399 12.2821 7.32707 12.2821C8.42497 12.2819 9.46541 11.9225 10.3232 11.2673L12.4853 13.4294C12.6153 13.5596 12.7861 13.6247 12.9566 13.6247C13.1272 13.6247 13.2979 13.5596 13.428 13.4294C13.6884 13.1691 13.6884 12.7469 13.428 12.4867ZM4.76717 9.88835C3.35571 8.47689 3.35588 6.18018 4.76717 4.76855C5.45093 4.08496 6.36011 3.70833 7.32707 3.70833C8.29419 3.70833 9.20321 4.08496 9.88696 4.76855C10.5707 5.45231 10.9473 6.36149 10.9473 7.32845C10.9473 8.29557 10.5707 9.20459 9.88696 9.88835C9.20321 10.5721 8.29419 10.9487 7.32707 10.9487C6.36011 10.9487 5.45093 10.5721 4.76717 9.88835Z' fill='%235E5E5E'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat no-repeat;
+      background-position: center right 12px;
+      background-size: 15px;
+      position: absolute;
+      top: -90px;
+      right: 160px;
+
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+    }
+  }
+
+  .table {
+    thead {
+      overflow: hidden;
+      th {
+        background: #f0f6ff;
+        border-bottom: 0;
+        color: v.$dark;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: left;
+
+        &:hover {
+          border: 0;
+          outline: 0 !important;
+        }
+
+        &:first-child {
+          border-radius: 8px 0 0 8px;
+        }
+
+        &:last-child {
+          border-radius: 0 8px 8px 0;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          color: v.$dark;
+          font-size: 14px;
+          font-weight: 400;
+          text-align: left;
+          border-color: #e9e9e9;
+
+          .svg-de-icon {
+            @include m.d-flex(center, center, nowrap, 10px);
+
+            .edit {
+              border-radius: 4px;
+              background: #eafff2;
+              width: 32px;
+              height: 32px;
+              padding: 8px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 0;
+            }
+            .delete {
+              border-radius: 4px;
+              background: #fff0f0;
+              width: 32px;
+              height: 32px;
+              padding: 8px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dt-layout-row {
+    .dt-length {
+      display: none;
+    }
+    &:nth-child(3) {
+      .dt-info {
+        color: #959595;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .paging_full_numbers {
+        gap: 5px;
+        display: flex;
+        justify-content: end;
+      }
+
+      .dt-paging-button {
+        border: 0;
+        // @include m.d-flex(center, center, nowrap, 0);
+        border-radius: 8px;
+        background: v.$light-alt;
+        color: v.$dark-alt !important;
+        border: 1px solid #f1f1f1;
+        background: v.$light;
+        transition: 0.5s all ease;
+
+        &.first,
+        &.last {
+          display: none;
+        }
+
+        &:hover {
+          background: v.$secondary;
+          border: 1px solid v.$secondary;
+          color: v.$light !important;
+        }
+
+        &.current {
+          background: v.$primary;
+          color: v.$light !important;
+
+          &:hover {
+            background: #0c367e;
+            color: v.$light !important;
+          }
+        }
+
+        &.previous,
+        &.next {
+          color: #333;
+          font-size: 13px;
+          font-weight: 600;
+          border: 0;
+          box-shadow: none !important;
+          outline: 0 !important;
+
+          &:hover {
+            border: 0;
+            background: none;
+            color: v.$dark !important;
+          }
+
+          &.disabled {
+            color: #ccc;
+            border: 0;
+            &:hover {
+              border: 0;
+              color: #ccc !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before {
+  color: v.$primary;
+}
+
+table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  color: v.$secondary;
+}

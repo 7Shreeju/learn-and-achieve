@@ -1,0 +1,47 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.header {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  border-radius: 40px 0;
+  width: 85%;
+  transform: translateX(-50%);
+  top: 30px;
+  left: 50%;
+  height: 80px;
+  background: v.$light;
+
+  .navbar {
+    height: 100%;
+
+    .navbar-brand {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .nav-link {
+      color: v.$dark;
+      font-weight: 600;
+
+      &.active {
+        color: v.$primary;
+      }
+
+      &:hover {
+        color: v.$primary;
+      }
+    }
+
+    // .ul-1 {
+    //   width: calc(50% - 100px);
+    // }
+
+    // .ul-2 {
+    //   width: calc(50% - 100px);
+    // }
+  }
+}

@@ -1,0 +1,105 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.sidebar {
+  width: 250px;
+  background: #161616;
+  min-height: 100vh;
+
+  .logo {
+    height: 120px;
+    @include m.d-flex(center, center, nowrap, 0);
+    img {
+      width: 110px;
+    }
+  }
+
+  .links {
+    margin-top: 10px;
+    li {
+      margin: 10px;
+      .nav-link {
+        outline: 0;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 15px;
+        color: v.$light;
+        width: 100%;
+        padding: 10px;
+        border-radius: 7px 0 0 7px;
+        position: relative;
+        @include m.d-flex(center, start, nowrap, 10px);
+
+        &.active {
+          background: #363636;
+        }
+      }
+    }
+
+    .dropdown {
+      > a {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          right: 10px;
+          top: 12px;
+          width: 20px;
+          height: 20px;
+          // background: #5e5e5e;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.391064 0.476025C0.635139 0.23195 1.03087 0.23195 1.27495 0.476025L4.99967 4.20072L8.72442 0.476025C8.96851 0.23195 9.36417 0.23195 9.60826 0.476025C9.85234 0.7201 9.85234 1.11583 9.60826 1.35988L5.44159 5.52655C5.32442 5.6438 5.16542 5.70963 4.99967 5.70963C4.83392 5.70963 4.67492 5.6438 4.55776 5.52655L0.391064 1.35988C0.146989 1.11583 0.146989 0.7201 0.391064 0.476025Z' fill='white'/%3E%3C/svg%3E");
+          background-repeat: no-repeat no-repeat;
+          background-position: center center;
+          // background-size: cover;
+          background-size: 12px 12px;
+        }
+      }
+      .dropdown-menu {
+        background: transparent;
+        position: relative !important;
+        transform: none !important;
+        border: 0;
+        outline: 0;
+        padding: 0;
+        margin: 15px 0 !important;
+        margin-left: 20px !important;
+        transition: 0.5s all ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 2px;
+          height: 100%;
+          background: #5e5e5e;
+        }
+        .dropdown-item {
+          color: #a8a8a8;
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 500;
+          background: none;
+          padding: 10px 10px 10px 18px;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: #5e5e5e;
+          }
+
+          &:hover {
+            color: v.$light-alt;
+          }
+        }
+      }
+    }
+  }
+}

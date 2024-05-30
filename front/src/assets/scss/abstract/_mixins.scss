@@ -1,0 +1,19 @@
+// For display flex
+@mixin d-flex($align, $justify, $wrap, $gap) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  gap: $gap;
+}
+
+// For icons
+@mixin icon($color, $bg, $h, $w, $lh) {
+  display: inline-block;
+  color: $color;
+  background: $bg;
+  height: $h;
+  width: $w;
+  line-height: $lh;
+  text-align: center;
+}
